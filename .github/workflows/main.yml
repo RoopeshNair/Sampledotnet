@@ -15,16 +15,13 @@ jobs:
       uses: nuget/setup-nuget@v1
       with:
         nuget-version: '5.3.1'
+
     - run: nuget restore
   
-    # dotnet msbuild 
-    #- name: msBuild with dotnet
-    #  run: C:\"Program Files (x86)"\"Microsoft Visual Studio"\2019\Enterprise\MSBuild\Current\Bin\msbuild.exe .\SampleWebApplication.sln -t:rebuild /p:DeployOnBuild=true /p:DeployDefaultTarget=WebPublish /p:WebPublishMethod=FileSystem /p:DeleteExistingFiles=True /p:publishUrl=".\\WebAppContent"
-  
-    - name: Setup MSBuild.exe
+    - name: setup-vs
       uses: warrenbuckley/Setup-MSBuild@v1
 
-    - name: MSBuild
+    - name: run MSBuild
       run: msbuild .\SampleWebApplication.sln
        
     - name: 'Run Azure webapp deploy action using publish profile credentials'
