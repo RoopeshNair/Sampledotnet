@@ -19,7 +19,7 @@ jobs:
     - run: nuget restore
   
     - name: setup-vs
-      uses: warrenbuckley/Setup-MSBuild@v1
+      uses: microsoft/setup-msbuild@dev
 
     - name: run MSBuild
       run: msbuild .\SampleWebApplication.sln -t:rebuild /p:DeployOnBuild=true /p:DeployDefaultTarget=WebPublish /p:WebPublishMethod=FileSystem /p:DeleteExistingFiles=True /p:publishUrl=".\\WebAppContent"
