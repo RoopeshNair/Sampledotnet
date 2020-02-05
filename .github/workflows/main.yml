@@ -8,7 +8,7 @@ jobs:
     steps:
 
     # checkout the repo
-    - uses: actions/checkout@master  
+    - uses: actions/checkout@v2 
     
     # Install Nuget and run Nuget restore
     - name: Use NuGet to restore dependencies as well as project-specific tools that are specified in the project file
